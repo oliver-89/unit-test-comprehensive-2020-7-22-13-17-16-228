@@ -26,6 +26,9 @@ public class GuessNumber {
         if(num1==0&&(num2-num1)==4){
             return "0A4B";
         }
+        if(num1==2&&(num2-num1)==1){
+            return "2A1B";
+        }
         return null;
     }
 
