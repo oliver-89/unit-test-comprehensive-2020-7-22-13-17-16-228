@@ -1,8 +1,10 @@
 package guess;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class GuessNumberTest {
 
@@ -11,9 +13,13 @@ public class GuessNumberTest {
         //given
         int[] answer = {1,2,3,4};
         int[] input = {1,2,3,4};
-        //when
+        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
         GuessNumber guessNumber = new GuessNumber();
-        String result = guessNumber.guess(input);
+
+        //when
+        String result = guessNumber.guess(input,answer);
+
         //then
         assertEquals("4A0B",result);
     }
