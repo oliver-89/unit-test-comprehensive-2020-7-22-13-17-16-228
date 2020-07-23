@@ -1,10 +1,21 @@
 package guess;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GuessNumber {
 
     public static String guess(int[] input, int[] answer){
+
+        Set<Integer> tempSet = new HashSet<Integer>();
+        for (int i = 0; i < input.length; i++) {
+            tempSet.add(input[i]);
+        }
+        if(input.length != tempSet.size()){
+            return "Wrong Input，Input again";
+        }
+
         int num1 = 0;
         int num2 = 0;
         if(Arrays.equals(input,answer)){
