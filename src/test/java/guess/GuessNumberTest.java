@@ -39,4 +39,20 @@ public class GuessNumberTest {
         //then
         assertEquals("2A2B",result);
     }
+
+    @Test
+    void should_return_0A4B_when_guess_number_given_answer_1234_and_input_4321(){
+        //given
+        int[] answer = {1,2,3,4};
+        int[] input = {4,3,2,1};
+        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber = new GuessNumber();
+
+        //when
+        String result = guessNumber.guess(input,answer);
+
+        //then
+        assertEquals("0A4B",result);
+    }
 }
