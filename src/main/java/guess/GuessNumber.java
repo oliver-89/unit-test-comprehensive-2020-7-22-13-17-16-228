@@ -32,6 +32,9 @@ public class GuessNumber {
         if(num1==0&&(num2-num1)==2){
             return "0A2B";
         }
+        if(num1==0&&(num2-num1)==0){
+            return "0A0B";
+        }
         return null;
     }
 
