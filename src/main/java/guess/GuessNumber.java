@@ -15,7 +15,7 @@ public class GuessNumber {
         if(input.length != tempSet.size()){
             return "Wrong Input，Input again";
         }
-        if(input.length>4){
+        if(input.length!=4){
             return "Wrong Input，Input again";
         }
 
