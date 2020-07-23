@@ -149,4 +149,32 @@ public class GuessNumberTest {
         //then
         assertEquals("Wrong Input，Input again",result);
     }
+
+    @Test
+    void should_return_YouHaveNoChoice_when_guess_number_given_more_than_6_times_answer(){
+        //given
+        int[] answer = {1,2,3,4};
+        int[] input1 = {1,5,6,1};
+        int[] input2 = {1,5,6,2};
+        int[] input3 = {1,5,6,3};
+        int[] input4 = {1,5,6,4};
+        int[] input5 = {1,5,6,5};
+        int[] input6 = {1,5,6,6};
+        int[] input7 = {1,5,6,7};
+        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn(answer);
+        GuessNumber guessNumber = new GuessNumber();
+
+        //when
+        String result1 = guessNumber.guess(input1,answer);
+        String result2 = guessNumber.guess(input2,answer);
+        String result3 = guessNumber.guess(input3,answer);
+        String result4 = guessNumber.guess(input4,answer);
+        String result5 = guessNumber.guess(input5,answer);
+        String result6 = guessNumber.guess(input6,answer);
+        String result7 = guessNumber.guess(input7,answer);
+
+        //then
+        assertEquals("You Have No Choice",result7);
+    }
 }
