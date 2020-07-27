@@ -30,9 +30,6 @@ public class GuessNumber {
 
         int num1 = 0;
         int num2 = 0;
-        if (Arrays.equals(input, answer)) {
-            return "4A0B";
-        }
         for (int i = 0; i < 4; i++) {
             if (input[i] == answer[i]) {
                 num1++;
