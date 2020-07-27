@@ -3,6 +3,9 @@ package guess;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class GuessNumber {
 
@@ -16,17 +19,12 @@ public class GuessNumber {
         }
         choice++;
 
-        Set<Integer> tempSet = new HashSet<Integer>();
-        for (int i = 0; i < input.length; i++) {
-            tempSet.add(input[i]);
+
+
+        if (input.length != Arrays.stream(input).distinct().count()||input.length != 4) {
+            return errorMsg;
         }
 
-        if (input.length != tempSet.size()) {
-            return errorMsg;
-        }
-        if (input.length != 4) {
-            return errorMsg;
-        }
 
         int num1 = 0;
         int num2 = 0;
