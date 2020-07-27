@@ -2,6 +2,7 @@ package guess;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -26,19 +27,21 @@ public class GuessNumber {
         }
 
 
-        int num1 = 0;
-        int num2 = 0;
+        int allcorrect = 0;
+        int correct = 0;
+
         for (int i = 0; i < 4; i++) {
             if (input[i] == answer[i]) {
-                num1++;
+                allcorrect++;
             }
             for (int asw : answer) {
                 if (asw == input[i]) {
-                    num2++;
+                    correct++;
                 }
             }
         }
-        return num1 + "A" + (num2 - num1) + "B";
+        return allcorrect + "A" + (correct - allcorrect) + "B";
     }
+
 
 }
