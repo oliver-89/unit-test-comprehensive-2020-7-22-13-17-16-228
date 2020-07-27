@@ -7,6 +7,7 @@ import java.util.Set;
 public class GuessNumber {
 
     int choice = 0;
+    String errorMsg = "Wrong Input，Input again";
 
     public String guess(int[] input, int[] answer) {
 
@@ -19,11 +20,12 @@ public class GuessNumber {
         for (int i = 0; i < input.length; i++) {
             tempSet.add(input[i]);
         }
+
         if (input.length != tempSet.size()) {
-            return "Wrong Input，Input again";
+            return errorMsg;
         }
         if (input.length != 4) {
-            return "Wrong Input，Input again";
+            return errorMsg;
         }
 
         int num1 = 0;
@@ -41,21 +43,6 @@ public class GuessNumber {
                 }
             }
         }
-//        if(num1==2&&(num2-num1)==2){
-//            return "2A2B";
-//        }
-//        if(num1==0&&(num2-num1)==4){
-//            return "0A4B";
-//        }
-//        if(num1==2&&(num2-num1)==1){
-//            return "2A1B";
-//        }
-//        if(num1==0&&(num2-num1)==2){
-//            return "0A2B";
-//        }
-//        if(num1==0&&(num2-num1)==0){
-//            return "0A0B";
-//        }
         return num1 + "A" + (num2 - num1) + "B";
     }
 
